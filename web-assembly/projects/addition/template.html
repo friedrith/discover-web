@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <body>
+    <input type="number" value="2" id="a" /> +
+    <input type="number" value="3" id="b" /> =
+    <span id="result"></span>
+    <div>
+      <button class="mybutton">Sum</button>
+    </div>
+  </body>
+  {{{ SCRIPT }}}
+  <script>
+    let sum = null;
+    window.onload = () => {
+      console.log("loaded");
+      sum = Module.cwrap("sum", "number", ["number", "number"]);
+    };
+    document.querySelector(".mybutton").addEventListener("click", function() {
+      const a = parseInt(document.getElementById("a").value);
+      const b = parseInt(document.getElementById("b").value);
+      document.querySelector("#result").innerHTML = sum(a, b);
+    });
+  </script>
+</html>

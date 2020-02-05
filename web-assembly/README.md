@@ -17,3 +17,5 @@ instructions](https://webassembly.org/getting-started/developers-guide/)
 - https://webassembly.org/
 - [Examples](https://wasmbyexample.dev/)
 - [Qt examples](https://www.qt.io/qt-examples-for-webassembly)
+- [C to Wasm](https://developer.mozilla.org/fr/docs/WebAssembly/C_to_wasm)
+- [Tutorials](https://marcoselvatici.github.io/WASM_tutorial/#call_javascript_from_C/C++)
