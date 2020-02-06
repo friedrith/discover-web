@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial;
+      }
+
+      .center {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      Benchmark
+      <div>
+        <button id="start">Start benchark</button>
+      </div>
+      <div id="durationJs"></div>
+      <div id="durationWasm"></div>
+    </div>
+  </body>
+  <script>
+    const javascriptPow = Math.pow;
+
+    let wasmPow = null;
+
+    window.onload = () => {
+      console.log("loaded");
+      wasmPow = Module.cwrap("fastPow", "number", ["number", "number"]);
+    };
+    const currentTime = () => {
+      const currentDate = new Date();
+      return currentDate.getTime();
+    };
+
+    document.querySelector("#start").addEventListener("click", () => {
+      const javascriptStart = currentTime();
+
+      for (let i = 0; i < 10000; i++) {
+        javascriptPow(5, i);
+      }
+      document.querySelector("#durationJs").innerHTML =
+        currentTime() - javascriptStart;
+      const wasmStart = new Date().getTime();
+      for (let i = 0; i < 10000; i++) {
+        wasmPow(5, i);
+      }
+      document.querySelector("#durationWasm").innerHTML =
+        currentTime() - wasmStart;
+    });
+  </script>
+  {{{ SCRIPT }}}
+</html>
