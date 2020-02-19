@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Css grid</title>
+    <style>
+      html {
+        height: 100%;
+      }
+      /* https://colorhunt.co/palette/172306 */
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fe346e;
+        color: #ffbd69;
+      }
+      .container {
+        flex: 0 0 800px;
+        width: 800px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "header header header header"
+          "main main . sidebar"
+          "footer footer footer footer";
+
+        grid-column-gap: 2px;
+        grid-row-gap: 2px;
+
+        border-radius: 4px;
+
+        /* border: 2px solid #381460; */
+      }
+
+      .header {
+        /* grid-column-start: header;
+        grid-column-end: span col4-start;
+        grid-row-start: 2;
+        grid-row-end: span 2;; */
+
+        grid-area: header;
+        border-radius: 4px;
+
+        height: 30px;
+
+        background-color: #381460;
+      }
+
+      .main {
+        grid-area: main;
+        border-radius: 4px;
+
+        height: 100px;
+
+        background-color: #381460;
+      }
+
+      .footer {
+        grid-area: footer;
+        border-radius: 4px;
+
+        height: 30px;
+
+        background-color: #381460;
+      }
+
+      .sidebar {
+        grid-area: sidebar;
+        border-radius: 4px;
+
+        height: 50px;
+
+        align-self: center;
+
+        background-color: #381460;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header"></header>
+      <div class="main"></div>
+      <div class="sidebar"></div>
+      <footer class="footer"></footer>
+    </div>
+  </body>
+</html>
