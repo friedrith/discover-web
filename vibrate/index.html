@@ -19,6 +19,8 @@
 </body>
 
 <script>
+  Notification.requestPermission();
+
   document.getElementById('vibrate').addEventListener('click', () => {
     console.log('ok')
     if (navigator.vibrate) { 
