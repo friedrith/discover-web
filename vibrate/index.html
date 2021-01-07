@@ -20,8 +20,9 @@
 
 <script>
   Notification.requestPermission();
+  const isMobile = (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent);
 
-  document.getElementById('vibrate').addEventListener('click', () => {
+  document.getElementById('vibrate').addEventListener(isMobile ? 'touchstart' : 'mousedown', () => {
     console.log('ok')
     if (navigator.vibrate) { 
       navigator.vibrate([100,30,100,30,100,30,200,30,200,30,200,30,100,30,100,30,100]); // Vibrate 'SOS' in Morse.
