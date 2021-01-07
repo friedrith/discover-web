@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body {
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<body>
+  <button id="vibrate">Vibrate</button>
+  <div id="feedback"></div>
+</body>
+
+<script>
+  document.getElementById('vibrate').addEventListener('click', () => {
+    console.log('ok')
+    if (navigator.vibrate) { 
+      navigator.vibrate([100,30,100,30,100,30,200,30,200,30,200,30,100,30,100,30,100]); // Vibrate 'SOS' in Morse.
+
+      document.getElementById("feedback").innerHTML = "Supported";
+      if (!result) {
+        document.getElementById("feedback").innerHTML = "Not supported";
+      }
+    } else {
+      document.getElementById("feedback").innerHTML = "Not supported";
+    }
+  })
+</script>
+</html>
