@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  html, body {
+    min-height: 100vh;
+  }
+
+  body {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<body>
+  <button id="share">Share</button>
+  <div id="feedback"></div>
+</body>
+
+<script>
+  const isMobile = (/iPhone|iPod|iPad|Android|BlackBerry/).test(navigator.userAgent);
+
+  document.getElementById('share').addEventListener(isMobile ? 'touchstart' : 'mousedown', () => {
+    
+    if (navigator.share) {
+      navigator.share({
+        title: 'web.dev',
+        text: 'Check out web.dev.',
+        url: 'https://web.dev/',
+      })
+        .then(() => {
+          document.getElementById("feedback").innerHTML = "Successful share";
+        })
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+      document.getElementById("feedback").innerHTML = "Not supported";
+    }
+  })
+</script>
+</html>
