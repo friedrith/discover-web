@@ -1,6 +1,4 @@
-import formatPriceBasic from '../formatPriceBasic'
-
-const prices = [
+const expectedPrices = [
   {
     label: 'normal price in USD',
     price: 1000,
@@ -83,15 +81,8 @@ const prices = [
     price: 1000,
     currency: 'JPY',
     locale: 'ja-JP',
-    expectedPrice: '￥1,000',
+    expectedPrice: /[￥¥]1,000/, // some browsers show ￥ some ¥
   },
 ]
 
-describe('format basic prices', () => {
-  it.each(prices)(
-    `should return price $expectedPrice for price $price, currency $currency and locale $locale since: $label`,
-    ({ expectedPrice, price, currency, locale }) => {
-      expect(formatPriceBasic(price, currency, locale)).toBe(expectedPrice)
-    }
-  )
-})
+export default expectedPrices
