@@ -23,12 +23,19 @@
 
   document.getElementById('share').addEventListener(isMobile ? 'touchstart' : 'mousedown', () => {
     
-    if (navigator.share) {
-      navigator.share({
-        title: 'web.dev',
-        text: 'Check out web.dev.',
-        url: 'https://web.dev/',
-      })
+    const shareData = {
+      title: 'web.dev',
+      text: 'Check out web.dev.2',
+      url: 'https://web.dev/',
+    };
+    
+    if (!navigator.canShare) {
+      document.getElementById("feedback").innerHTML = "Web Share API Not supported";
+      return;
+    }
+
+    if (navigator.canShare(shareData)) {
+      navigator.share(shareData)
         .then(() => {
           document.getElementById("feedback").innerHTML = "Successful share";
         })

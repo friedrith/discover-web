@@ -1,0 +1,15 @@
+{
+  "name": "intl-number-format",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^15.0.1",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2"
+  }
+}
