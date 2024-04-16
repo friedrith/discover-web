@@ -2,6 +2,26 @@
 
 | Application     | Currency        | Language | Format | Price         | Screenshot                                                                               |
 | --------------- | --------------- | -------- | ------ | ------------- | ---------------------------------------------------------------------------------------- |
+| Air Canada      | Canadian Dollar | English  | text   | $1753         | ![Apple App Store](./screenshots/screenshot-air-canada-canadian-dollar-en-text.png)      |
+| Air Canada      | Canadian Dollar | French   | text   | $1753         | ![Apple App Store](./screenshots/screenshot-air-canada-canadian-dollar-fr-text.png)      |
+| Air Canada      | Euro            | English  | text   | €2677.35      | ![Apple App Store](./screenshots/screenshot-air-canada-euro-en-text.png)                 |
+| Air Canada      | Euro            | French   | text   | €2677,35      | ![Apple App Store](./screenshots/screenshot-air-canada-euro-fr-text.png)                 |
+| Air Canada      | US Dollar       | English  | text   | US$1288       | ![Apple App Store](./screenshots/screenshot-air-canada-us-dollar-en-text.png)            |
+| AirBnb          | Canadian Dollar | English  | text   | $341 CAD      | ![Apple App Store](./screenshots/screenshot-airbnb-canadian-dollar-en-text.png)          |
+| AirBnb          | Euro            | French   | text   | 150€          | ![Apple App Store](./screenshots/screenshot-airbnb-euro-en-text.png)                     |
+| AirBnb          | US Dollar       | English  | text   | $190          | ![Apple App Store](./screenshots/screenshot-airbnb-us-dollar-en-text.png)                |
+| AirBnb          | US Dollar       | English  | text   | $799.90       | ![Apple App Store](./screenshots/screenshot-airbnb-us-dollar-en-with-taxes-text.png)     |
+| AirBnb          | Yen             | Japanese | text   | ￥ 33,077     | ![Apple App Store](./screenshots/screenshot-airbnb-yen-jp-text.png)                      |
+| Amazon          | Canadian Dollar | English  | style  | $2,196.99     | ![Apple App Store](./screenshots/screenshot-amazon-canadian-dollar-en-format.png)        |
+| Amazon          | Canadian Dollar | English  | text   | $3,257.97     | ![Apple App Store](./screenshots/screenshot-amazon-canadian-dollar-en-text.png)          |
+| Amazon          | Canadian Dollar | French   | style  | 2 196.99$     | ![Apple App Store](./screenshots/screenshot-amazon-canadian-dollar-fr-format.png)        |
+| Amazon          | Canadian Dollar | French   | text   | 3 257,97$     | ![Apple App Store](./screenshots/screenshot-amazon-canadian-dollar-fr-text.png)          |
+| Amazon          | Euro            | German   | style  | €1,444.15     | ![Apple App Store](./screenshots/screenshot-amazon-euro-de-format.png)                   |
+| Amazon          | Euro            | German   | text   | €1,463.14     | ![Apple App Store](./screenshots/screenshot-amazon-euro-de-text.png)                     |
+| Amazon          | Euro            | French   | text   | 5 287.14€     | ![Apple App Store](./screenshots/screenshot-amazon-euro-fr-text.png)                     |
+| Amazon          | US Dollar       | English  | text   | $2,395.99     | ![Apple App Store](./screenshots/screenshot-amazon-us-dollar-en-text.png)                |
+| Amazon          | US Dollar       | Spanish  | text   | US$3,395.99   | ![Apple App Store](./screenshots/screenshot-amazon-us-dollar-es-text.png)                |
+| Amazon          | Yen             | Japanese | text   | ￥ 121,111    | ![Apple App Store](./screenshots/screenshot-amazon-yen-text.png)                         |
 | Apple           | Canadian Dollar | English  | text   | $69.00        | ![Apple App Store](./screenshots/screenshot-apple-canadian-dollar-en-text.png)           |
 | Apple           | Canadian Dollar | French   | text   | $69.00        | ![Apple App Store](./screenshots/screenshot-apple-canadian-dollar-fr-text.png)           |
 | Apple           | Euro            | German   | text   | 59,00€        | ![Apple App Store](./screenshots/screenshot-apple-euro-de-text.png)                      |
