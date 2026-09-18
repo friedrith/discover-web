@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ship-It Shaman — Thibault Friedrich</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Rajdhani:wght@500;600;700&family=Teko:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/pages/toon/style.css" />
+  </head>
+  <body>
+    <a class="back" href="/">&larr; pages</a>
+
+    <svg width="0" height="0" style="position: absolute">
+      <filter id="roughen" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="7" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="70" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
+    <main>
+      <!-- BOSS CARD -->
+      <section class="boss">
+        <svg class="splatter acid" viewBox="0 0 100 100" preserveAspectRatio="none"><ellipse cx="50" cy="50" rx="46" ry="46" /></svg>
+        <svg class="splatter magenta" viewBox="0 0 100 100" preserveAspectRatio="none"><ellipse cx="50" cy="50" rx="46" ry="46" /></svg>
+        <div class="halftone"></div>
+
+        <div class="boss-content">
+          <div class="boss-mark">
+            <canvas id="icon-hero" class="icon-hero boss-anim boss-anim-medallion"></canvas>
+          </div>
+
+          <div class="boss-type">
+            <h1 class="boss-name boss-anim boss-anim-name">THIBAULT<br />FRIEDRICH</h1>
+            <div class="boss-epithet">
+              <span class="line1 boss-anim boss-anim-line1">THE SHIP-IT BOSS</span>
+              <span class="line2 boss-anim boss-anim-line2">ONE WEEK OR BUST!!</span>
+            </div>
+            <p class="boss-tagline boss-anim boss-anim-tagline">
+              Product Engineer, immune to <strong>bugs</strong>, strong <strong>product vision</strong>. Drops a
+              product in <strong>7 days</strong>.
+            </p>
+          </div>
+        </div>
+
+        <p class="boss-footer-note boss-anim boss-anim-footer">EST TIMEZONE — STAFF ENGINEER CLASS</p>
+      </section>
+
+      <!-- COMIC PANEL DIVIDER -->
+      <svg class="panel-divider" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="divider-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ef2f8e" />
+            <stop offset="50%" stop-color="#f4c430" />
+            <stop offset="100%" stop-color="#34e0ff" />
+          </linearGradient>
+        </defs>
+        <polygon points="0,0 1440,60 1440,120 0,120" class="divider-fill" />
+        <polygon points="0,0 1440,60 1440,66 0,6" class="divider-edge" />
+      </svg>
+
+      <!-- STATS HUD -->
+      <section class="hud-wrap">
+        <div class="halftone halftone-cool"></div>
+
+        <div class="hud-heading" data-reveal>
+          <span class="eyebrow-tag">ENGINEER RANK</span>
+          <h2>Bonus Stats</h2>
+        </div>
+
+        <div class="hud-panel-wrap" data-reveal>
+        <div class="hud-panel" id="hud-panel">
+          <div class="hud-card hud-spotlight">
+            <div class="rank-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 2 15 9 22 10 17 15 18 22 12 18.5 6 22 7 15 2 10 9 9Z" /></svg>
+            </div>
+            <h3>Founder's Instinct</h3>
+            <p>Ships a full product loop — idea, build, deploy — inside a single working week, every time.</p>
+            <div class="hud-cost">RANK 12 · 10+ YEARS ACTIVE</div>
+          </div>
+
+          <div class="hud-character">
+            <canvas id="icon-character" class="icon-character"></canvas>
+          </div>
+
+          <div class="hud-card hud-rewards">
+            <div class="hud-card-head">Bonus Stats</div>
+
+            <div class="stat-block stat-block--cyan">
+              <h4>Programming</h4>
+              <ul>
+                <li><span class="stat-pct">+92.00%</span> TypeScript</li>
+                <li><span class="stat-pct">+88.00%</span> JavaScript</li>
+                <li><span class="stat-pct">+65.00%</span> Rust</li>
+                <li><span class="stat-pct">+80.00%</span> Java</li>
+                <li><span class="stat-pct">+74.00%</span> PHP</li>
+              </ul>
+            </div>
+
+            <div class="stat-block stat-block--magenta">
+              <h4>Founder Vision</h4>
+              <ul>
+                <li><span class="stat-pct">+95.00%</span> Product Vision</li>
+                <li><span class="stat-pct">+90.00%</span> User Experience</li>
+                <li><span class="stat-pct">+85.00%</span> Lean Approach</li>
+                <li><span class="stat-pct">+78.00%</span> Rapid Prototyping</li>
+                <li><span class="stat-pct">+82.00%</span> Team Leadership</li>
+              </ul>
+            </div>
+
+            <div class="stat-block stat-block--acid">
+              <h4>Production Ready</h4>
+              <ul>
+                <li><span class="stat-pct">+88.00%</span> Monitoring</li>
+                <li><span class="stat-pct">+91.00%</span> Analytics</li>
+                <li><span class="stat-pct">+94.00%</span> A/B Testing</li>
+                <li><span class="stat-pct">+86.00%</span> CI/CD</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- SKILL TREES -->
+      <section class="tree-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Skill Trees</span>
+          <h2>Pick Your Build</h2>
+        </div>
+
+        <div class="tree-layout" data-reveal>
+          <div class="hud-card tree-detail">
+            <div class="hud-card-head">Skill</div>
+            <div class="tree-detail-body">
+              <h3 id="tree-title">Design Systems</h3>
+              <p class="tree-rank" id="tree-rank">RANK 5 / 5</p>
+              <p id="tree-desc">40+ accessible, tested components across 20+ themes and 5+ products — Storybook, React, MUI.</p>
+              <dl class="tree-stats" id="tree-stats">
+                <div><dt>Components</dt><dd>40+</dd></div>
+                <div><dt>Themes</dt><dd>20+</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="tree-columns">
+            <div class="tree-col tree-col--cyan">
+              <h4>Frontend Platform</h4>
+              <ul>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node is-active"
+                    data-title="Design Systems"
+                    data-rank="RANK 5 / 5"
+                    data-desc="40+ accessible, tested components across 20+ themes and 5+ products — Storybook, React, MUI."
+                    data-stats="Components:40+|Themes:20+"
+                  >
+                    <span class="tree-node-face">DS</span>
+                    <span class="tree-node-label">Design Systems<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Micro-Frontends"
+                    data-rank="RANK 5 / 5"
+                    data-desc="Rebuilt an e-commerce travel platform on a micro-frontend architecture, then helped other teams onboard onto it."
+                    data-stats="Load time:15s → 3s|Teams onboarded:Multiple"
+                  >
+                    <span class="tree-node-face">MF</span>
+                    <span class="tree-node-label">Micro-Frontends<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Architecture"
+                    data-rank="RANK 4 / 5"
+                    data-desc="Initiated and supervised the refactor from layer-based to feature-based architecture, and designed a JSON-render architecture for AI-led page customization."
+                    data-stats="Features migrated:70+|Style capability:+50%"
+                  >
+                    <span class="tree-node-face">AR</span>
+                    <span class="tree-node-label">Architecture<em>4/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Quality Gates"
+                    data-rank="RANK 4 / 5"
+                    data-desc="Custom ESLint rules, danger.js, SonarCloud and Snyk kept accessibility and security issues low across the monorepo."
+                    data-stats="Code reviews:Standard|A11y issues:Low"
+                  >
+                    <span class="tree-node-face">QG</span>
+                    <span class="tree-node-label">Quality Gates<em>4/5</em></span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tree-col tree-col--magenta">
+              <h4>Product &amp; UX</h4>
+              <ul>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Experimentation"
+                    data-rank="RANK 5 / 5"
+                    data-desc="Led the A/B and experimentation strategy, enabling a steady cadence of production experiments across the product suite."
+                    data-stats="Experiments:25+ / quarter|Revenue impact:~$1.3M USD"
+                  >
+                    <span class="tree-node-face">AB</span>
+                    <span class="tree-node-label">Experimentation<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Prototyping"
+                    data-rank="RANK 5 / 5"
+                    data-desc="Redesigned a web app UX by prototyping hi-fi pages with full interaction simulation before a line of production code."
+                    data-stats="Pages prototyped:100+|Fidelity:Hi-fi"
+                  >
+                    <span class="tree-node-face">PR</span>
+                    <span class="tree-node-label">Prototyping<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="User Research"
+                    data-rank="RANK 4 / 5"
+                    data-desc="Coordinated product features — grooming, backlog, roadmap — validated through customer interviews and user testing."
+                    data-stats="Positive reviews:80%|Method:Interviews + testing"
+                  >
+                    <span class="tree-node-face">UR</span>
+                    <span class="tree-node-label">User Research<em>4/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Payments"
+                    data-rank="RANK 4 / 5"
+                    data-desc="Implemented multiple payment flows end to end, including the 3DS challenge."
+                    data-stats="Flows shipped:Multiple|Incl.:3DS challenge"
+                  >
+                    <span class="tree-node-face">$</span>
+                    <span class="tree-node-label">Payments<em>4/5</em></span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div class="tree-col tree-col--acid">
+              <h4>Ship Fast</h4>
+              <ul>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="0 → 1 Delivery"
+                    data-rank="RANK 5 / 5"
+                    data-desc="Cofounder and CTO: shipped a collaborative note-taking web app in two months and raised funding on the back of it."
+                    data-stats="MVP window:1 week|Raised as cofounder:€250k"
+                  >
+                    <span class="tree-node-face">01</span>
+                    <span class="tree-node-label">0 → 1 Delivery<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="TypeScript / Bun"
+                    data-rank="RANK 5 / 5"
+                    data-desc="TypeScript and JavaScript on Bun as the default stack, with Rust, Java and PHP in reach when a problem calls for them."
+                    data-stats="Primary:TypeScript|Runtime:Bun"
+                  >
+                    <span class="tree-node-face">TS</span>
+                    <span class="tree-node-label">TypeScript / Bun<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Dev Experience"
+                    data-rank="RANK 5 / 5"
+                    data-desc="Drove developer experience with faster tooling — oxlint, bun, vitest, lefthook — so the feedback loop stays in seconds."
+                    data-stats="Tooling:oxlint · vitest|Hooks:lefthook"
+                  >
+                    <span class="tree-node-face">DX</span>
+                    <span class="tree-node-label">Dev Experience<em>5/5</em></span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    class="tree-node"
+                    data-title="Team Scaling"
+                    data-rank="RANK 4 / 5"
+                    data-desc="Recruited frontend developers, ran the interview loop, and trained the wider org on the frontend monorepository."
+                    data-stats="Interviews run:50+|Developers trained:100+"
+                  >
+                    <span class="tree-node-face">TM</span>
+                    <span class="tree-node-label">Team Scaling<em>4/5</em></span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEGENDARY DROPS -->
+      <section class="drops-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Recent Drops</span>
+          <h2>Legendary Loot</h2>
+        </div>
+
+        <div class="drops-grid">
+          <article class="loot-card loot-card--legendary" data-reveal>
+            <header>
+              <span class="loot-score">1300</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Staff Level</span>
+            </header>
+            <h3>Experiment Engine</h3>
+            <dl class="loot-stats">
+              <div><dt>Revenue</dt><dd>~$1.3M USD</dd></div>
+              <div><dt>Cadence</dt><dd>25+ / quarter</dd></div>
+              <div><dt>Surface</dt><dd>5+ products</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Led the A/B &amp; experimentation strategy</li>
+              <li>Every test ships to production</li>
+            </ul>
+            <p class="loot-effect">Wins compound: one quarter of experiments moved revenue by ~$1.3M USD.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Legendary</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--epic" data-reveal>
+            <header>
+              <span class="loot-score">480</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Architecture</span>
+            </header>
+            <h3>Micro-Frontend Rebuild</h3>
+            <dl class="loot-stats">
+              <div><dt>Load time</dt><dd>15s → 3s</dd></div>
+              <div><dt>Surface</dt><dd>E-commerce travel</dd></div>
+              <div><dt>Reach</dt><dd>Multi-team</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Micro-frontend platform, not a rewrite</li>
+              <li>Other teams onboarded onto it</li>
+            </ul>
+            <p class="loot-effect">Cuts time to interactive by 80% — the whole funnel feels different.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--epic" data-reveal>
+            <header>
+              <span class="loot-score">410</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Platform</span>
+            </header>
+            <h3>Design System Forge</h3>
+            <dl class="loot-stats">
+              <div><dt>Components</dt><dd>40+</dd></div>
+              <div><dt>Themes</dt><dd>20+</dd></div>
+              <div><dt>Served</dt><dd>100+ devs</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Accessible &amp; tested, Storybook-documented</li>
+              <li>Token-based migration with the design team</li>
+            </ul>
+            <p class="loot-effect">Grants every product team +50% style capability from one source of truth.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--rare" data-reveal>
+            <header>
+              <span class="loot-score">344</span>
+              <span class="loot-score-label">Stars</span>
+              <span class="loot-req">Open Source</span>
+            </header>
+            <h3>node-wifi</h3>
+            <dl class="loot-stats">
+              <div><dt>Stars</dt><dd>344★</dd></div>
+              <div><dt>Scope</dt><dd>Cross-platform</dd></div>
+              <div><dt>Status</dt><dd>Maintained</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Wi-Fi control from Node, any OS</li>
+              <li>Used well beyond its original project</li>
+            </ul>
+            <p class="loot-effect">Ships utility to strangers — the clearest signal that the code holds up.</p>
+            <footer><span class="loot-maker">Open Source</span><span class="loot-tier">Rare</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- MISSION LOG -->
+      <section class="mission-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Main Mission</span>
+          <h2>Seven Days To Production</h2>
+        </div>
+
+        <ol class="mission-log">
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 1</span>
+            <div class="mission-body">
+              <h3>Lock the scope</h3>
+              <p>One outcome, written down. Everything that is not it gets a backlog line, not a branch.</p>
+            </div>
+            <span class="mission-xp">+150 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 2</span>
+            <div class="mission-body">
+              <h3>Prototype the flow</h3>
+              <p>Hi-fi screens with real interaction, reviewed before any production code exists.</p>
+            </div>
+            <span class="mission-xp">+200 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 3</span>
+            <div class="mission-body">
+              <h3>Build the core loop</h3>
+              <p>The one path that has to work, end to end, on real data.</p>
+            </div>
+            <span class="mission-xp">+300 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 4</span>
+            <div class="mission-body">
+              <h3>Wire the integrations</h3>
+              <p>Auth, payments, third parties — the parts that always take longer than the demo suggests.</p>
+            </div>
+            <span class="mission-xp">+300 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 5</span>
+            <div class="mission-body">
+              <h3>Polish &amp; accessibility</h3>
+              <p>States, edges, keyboard, contrast. The difference between a demo and a product.</p>
+            </div>
+            <span class="mission-xp">+250 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 6</span>
+            <div class="mission-body">
+              <h3>Instrument it</h3>
+              <p>Analytics, an experiment harness, monitoring and alerts — so week two is informed, not guessed.</p>
+            </div>
+            <span class="mission-xp">+250 XP</span>
+          </li>
+          <li class="mission-row" data-reveal>
+            <span class="mission-day">Day 7</span>
+            <div class="mission-body">
+              <h3>Deploy &amp; hand over</h3>
+              <p>Production deploy, docs, and a walkthrough with whoever owns it next.</p>
+            </div>
+            <span class="mission-xp">+500 XP</span>
+          </li>
+        </ol>
+      </section>
+
+      <!-- CLASS SELECT -->
+      <section class="class-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Choose Your Hunter</span>
+          <h2>How We Work Together</h2>
+        </div>
+
+        <div class="class-row" data-reveal>
+          <article class="class-card is-selected">
+            <canvas id="icon-class-sprint" class="class-emblem"></canvas>
+            <h3>The Sprint</h3>
+            <p class="class-kind">Builder</p>
+            <p class="class-desc">One week, idea to production. You get a working product and the plan for week two.</p>
+          </article>
+          <article class="class-card">
+            <canvas id="icon-class-rebuild" class="class-emblem"></canvas>
+            <h3>The Rebuild</h3>
+            <p class="class-kind">Rescuer</p>
+            <p class="class-desc">Performance and architecture rescue for a codebase that has stopped moving.</p>
+          </article>
+          <article class="class-card">
+            <canvas id="icon-class-platform" class="class-emblem"></canvas>
+            <h3>The Platform</h3>
+            <p class="class-kind">Forger</p>
+            <p class="class-desc">A design system and component platform your whole org can build on.</p>
+          </article>
+          <article class="class-card">
+            <canvas id="icon-class-embed" class="class-emblem"></canvas>
+            <h3>The Reinforcement</h3>
+            <p class="class-kind">Staff</p>
+            <p class="class-desc">Embedded staff-level engineer: raises the floor, trains the team, then leaves it standing.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- LOADOUT -->
+      <section class="loadout-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Loadout</span>
+          <h2>What Ships With You</h2>
+        </div>
+
+        <ul class="loadout-list" data-reveal>
+          <li><span class="loadout-chip">01</span><span class="loadout-label">Production deploy</span><span class="loadout-note">Live, not a staging link</span></li>
+          <li><span class="loadout-chip">02</span><span class="loadout-label">Design system</span><span class="loadout-note">Tokens, components, Storybook</span></li>
+          <li><span class="loadout-chip">03</span><span class="loadout-label">Analytics &amp; A/B harness</span><span class="loadout-note">Week two is measured</span></li>
+          <li><span class="loadout-chip">04</span><span class="loadout-label">Monitoring &amp; alerts</span><span class="loadout-note">You hear it before users do</span></li>
+          <li><span class="loadout-chip">05</span><span class="loadout-label">Handover &amp; training</span><span class="loadout-note">Docs plus a live walkthrough</span></li>
+        </ul>
+      </section>
+
+      <!-- FIELD REPORTS -->
+      <section class="reports-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Field Reports</span>
+          <h2>Signal From The Ground</h2>
+        </div>
+
+        <div class="reports-grid">
+          <article class="report-card" data-reveal>
+            <p class="report-value">100+</p>
+            <p class="report-text">developers supported on the frontend monorepository, across 10+ training sessions.</p>
+            <p class="report-source">Plusgrade · 2023 – now</p>
+          </article>
+          <article class="report-card" data-reveal>
+            <p class="report-value">80%</p>
+            <p class="report-text">positive customer reviews after rebuilding the product on interviews and user testing.</p>
+            <p class="report-source">POLLEN Metrology · 2017 – 2019</p>
+          </article>
+          <article class="report-card" data-reveal>
+            <p class="report-value">50+</p>
+            <p class="report-text">technical interviews run, 10+ frontend developers recruited and onboarded.</p>
+            <p class="report-source">Plusgrade · 2023 – now</p>
+          </article>
+          <article class="report-card" data-reveal>
+            <p class="report-value">€250k</p>
+            <p class="report-text">raised as cofounder &amp; CTO, leading a small team to a shipped product.</p>
+            <p class="report-source">Elqui · 2014 – 2017</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-wrap">
+        <div class="cta-card" data-reveal>
+          <p class="cta-ribbon">Level Up</p>
+          <h2>Ready To Ship?</h2>
+          <p class="cta-copy">
+            Bring one outcome you want live. Seven days later it is in production, instrumented, and yours.
+          </p>
+          <div class="cta-xp"><span class="cta-xp-fill"></span></div>
+          <a class="cta-action" href="#"><span class="cta-key">E</span> Start the run</a>
+          <p class="cta-note">EST timezone · one build per sprint</p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/pages/toon/main.ts"></script>
+  </body>
+</html>
