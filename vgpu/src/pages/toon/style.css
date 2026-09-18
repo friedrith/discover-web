@@ -1304,10 +1304,56 @@ body {
 }
 
 .report-card {
+  position: relative;
   padding: 1.3rem 1.3rem 1.4rem;
   background: linear-gradient(180deg, var(--navy-2), #061224);
   border: 3px solid var(--ink);
   box-shadow: 0 0 0 1px rgba(52, 224, 255, 0.25), 0 12px 26px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+/* Cyan scan bar that wipes across the top edge on hover — the counterpart
+   to the gold marker on the mission rows. */
+.report-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.3rem;
+  background: linear-gradient(90deg, var(--cyan), var(--acid));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(180deg, #0d2039, #061224);
+  box-shadow: 0 0 0 1px rgba(52, 224, 255, 0.65), 0 0 30px rgba(52, 224, 255, 0.22), 0 18px 34px rgba(0, 0, 0, 0.55);
+}
+
+.report-card:hover::after {
+  transform: scaleX(1);
+}
+
+.report-card:hover .report-value {
+  color: #b8f4ff;
+  text-shadow: 0 0 22px rgba(52, 224, 255, 0.75);
+}
+
+.report-card:hover .report-text {
+  color: rgba(234, 249, 255, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .report-card,
+  .report-card::after {
+    transition: none;
+  }
+  .report-card:hover {
+    transform: none;
+  }
 }
 
 .report-value {
