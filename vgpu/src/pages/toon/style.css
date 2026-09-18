@@ -1050,6 +1050,7 @@ body {
 }
 
 .mission-row {
+  position: relative;
   display: grid;
   grid-template-columns: 5.5rem 1fr auto;
   align-items: center;
@@ -1058,6 +1059,56 @@ body {
   background: linear-gradient(90deg, rgba(52, 224, 255, 0.07), transparent 40%), linear-gradient(180deg, var(--navy-2), #061224);
   border: 3px solid var(--ink);
   box-shadow: 0 0 0 1px rgba(52, 224, 255, 0.28), 0 10px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+/* Gold edge marker that wipes in from the left — the "tracked mission"
+   state from the quest log. */
+.mission-row::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.35rem;
+  background: linear-gradient(180deg, #ffd873, var(--gold));
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+.mission-row:hover {
+  transform: translateX(8px);
+  background: linear-gradient(90deg, rgba(244, 196, 48, 0.14), transparent 45%), linear-gradient(180deg, #0c1c35, #061224);
+  box-shadow: 0 0 0 1px rgba(244, 196, 48, 0.55), 0 0 26px rgba(244, 196, 48, 0.2), 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+.mission-row:hover::after {
+  transform: scaleY(1);
+}
+
+.mission-row:hover .mission-day {
+  color: #ffe9a8;
+  text-shadow: 0 0 14px rgba(244, 196, 48, 0.65);
+}
+
+.mission-row:hover .mission-body h3 {
+  color: #fff;
+}
+
+.mission-row:hover .mission-xp {
+  color: var(--acid);
+  text-shadow: 0 0 14px rgba(143, 224, 22, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mission-row,
+  .mission-row::after {
+    transition: none;
+  }
+  .mission-row:hover {
+    transform: none;
+  }
 }
 
 .mission-day {

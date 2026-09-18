@@ -127,8 +127,8 @@
         </div>
       </section>
 
-      <!-- SKILL TREES -->
-      <section class="tree-wrap">
+      <!-- SKILL TREES — kept in place but hidden; remove `hidden` to bring it back. -->
+      <section class="tree-wrap" hidden>
         <div class="section-head" data-reveal>
           <span class="eyebrow-tag">Skill Trees</span>
           <h2>Pick Your Build</h2>
@@ -326,96 +326,6 @@
         </div>
       </section>
 
-      <!-- LEGENDARY DROPS -->
-      <section class="drops-wrap">
-        <div class="section-head" data-reveal>
-          <span class="eyebrow-tag">Recent Drops</span>
-          <h2>Legendary Loot</h2>
-        </div>
-
-        <div class="drops-grid">
-          <article class="loot-card loot-card--legendary" data-reveal>
-            <header>
-              <span class="loot-score">1300</span>
-              <span class="loot-score-label">Impact Score</span>
-              <span class="loot-req">Staff Level</span>
-            </header>
-            <h3>Experiment Engine</h3>
-            <dl class="loot-stats">
-              <div><dt>Revenue</dt><dd>~$1.3M USD</dd></div>
-              <div><dt>Cadence</dt><dd>25+ / quarter</dd></div>
-              <div><dt>Surface</dt><dd>5+ products</dd></div>
-            </dl>
-            <ul class="loot-traits">
-              <li>Led the A/B &amp; experimentation strategy</li>
-              <li>Every test ships to production</li>
-            </ul>
-            <p class="loot-effect">Wins compound: one quarter of experiments moved revenue by ~$1.3M USD.</p>
-            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Legendary</span></footer>
-          </article>
-
-          <article class="loot-card loot-card--epic" data-reveal>
-            <header>
-              <span class="loot-score">480</span>
-              <span class="loot-score-label">Impact Score</span>
-              <span class="loot-req">Architecture</span>
-            </header>
-            <h3>Micro-Frontend Rebuild</h3>
-            <dl class="loot-stats">
-              <div><dt>Load time</dt><dd>15s → 3s</dd></div>
-              <div><dt>Surface</dt><dd>E-commerce travel</dd></div>
-              <div><dt>Reach</dt><dd>Multi-team</dd></div>
-            </dl>
-            <ul class="loot-traits">
-              <li>Micro-frontend platform, not a rewrite</li>
-              <li>Other teams onboarded onto it</li>
-            </ul>
-            <p class="loot-effect">Cuts time to interactive by 80% — the whole funnel feels different.</p>
-            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
-          </article>
-
-          <article class="loot-card loot-card--epic" data-reveal>
-            <header>
-              <span class="loot-score">410</span>
-              <span class="loot-score-label">Impact Score</span>
-              <span class="loot-req">Platform</span>
-            </header>
-            <h3>Design System Forge</h3>
-            <dl class="loot-stats">
-              <div><dt>Components</dt><dd>40+</dd></div>
-              <div><dt>Themes</dt><dd>20+</dd></div>
-              <div><dt>Served</dt><dd>100+ devs</dd></div>
-            </dl>
-            <ul class="loot-traits">
-              <li>Accessible &amp; tested, Storybook-documented</li>
-              <li>Token-based migration with the design team</li>
-            </ul>
-            <p class="loot-effect">Grants every product team +50% style capability from one source of truth.</p>
-            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
-          </article>
-
-          <article class="loot-card loot-card--rare" data-reveal>
-            <header>
-              <span class="loot-score">344</span>
-              <span class="loot-score-label">Stars</span>
-              <span class="loot-req">Open Source</span>
-            </header>
-            <h3>node-wifi</h3>
-            <dl class="loot-stats">
-              <div><dt>Stars</dt><dd>344★</dd></div>
-              <div><dt>Scope</dt><dd>Cross-platform</dd></div>
-              <div><dt>Status</dt><dd>Maintained</dd></div>
-            </dl>
-            <ul class="loot-traits">
-              <li>Wi-Fi control from Node, any OS</li>
-              <li>Used well beyond its original project</li>
-            </ul>
-            <p class="loot-effect">Ships utility to strangers — the clearest signal that the code holds up.</p>
-            <footer><span class="loot-maker">Open Source</span><span class="loot-tier">Rare</span></footer>
-          </article>
-        </div>
-      </section>
-
       <!-- MISSION LOG -->
       <section class="mission-wrap">
         <div class="section-head" data-reveal>
@@ -532,6 +442,96 @@
           <li><span class="loadout-chip">04</span><span class="loadout-label">Monitoring &amp; alerts</span><span class="loadout-note">You hear it before users do</span></li>
           <li><span class="loadout-chip">05</span><span class="loadout-label">Handover &amp; training</span><span class="loadout-note">Docs plus a live walkthrough</span></li>
         </ul>
+      </section>
+
+      <!-- LEGENDARY DROPS -->
+      <section class="drops-wrap">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow-tag">Recent Drops</span>
+          <h2>Legendary Loot</h2>
+        </div>
+
+        <div class="drops-grid">
+          <article class="loot-card loot-card--legendary" data-reveal>
+            <header>
+              <span class="loot-score">1300</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Staff Level</span>
+            </header>
+            <h3>Experiment Engine</h3>
+            <dl class="loot-stats">
+              <div><dt>Revenue</dt><dd>~$1.3M USD</dd></div>
+              <div><dt>Cadence</dt><dd>25+ / quarter</dd></div>
+              <div><dt>Surface</dt><dd>5+ products</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Led the A/B &amp; experimentation strategy</li>
+              <li>Every test ships to production</li>
+            </ul>
+            <p class="loot-effect">Wins compound: one quarter of experiments moved revenue by ~$1.3M USD.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Legendary</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--epic" data-reveal>
+            <header>
+              <span class="loot-score">480</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Architecture</span>
+            </header>
+            <h3>Micro-Frontend Rebuild</h3>
+            <dl class="loot-stats">
+              <div><dt>Load time</dt><dd>15s → 3s</dd></div>
+              <div><dt>Surface</dt><dd>E-commerce travel</dd></div>
+              <div><dt>Reach</dt><dd>Multi-team</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Micro-frontend platform, not a rewrite</li>
+              <li>Other teams onboarded onto it</li>
+            </ul>
+            <p class="loot-effect">Cuts time to interactive by 80% — the whole funnel feels different.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--epic" data-reveal>
+            <header>
+              <span class="loot-score">410</span>
+              <span class="loot-score-label">Impact Score</span>
+              <span class="loot-req">Platform</span>
+            </header>
+            <h3>Design System Forge</h3>
+            <dl class="loot-stats">
+              <div><dt>Components</dt><dd>40+</dd></div>
+              <div><dt>Themes</dt><dd>20+</dd></div>
+              <div><dt>Served</dt><dd>100+ devs</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Accessible &amp; tested, Storybook-documented</li>
+              <li>Token-based migration with the design team</li>
+            </ul>
+            <p class="loot-effect">Grants every product team +50% style capability from one source of truth.</p>
+            <footer><span class="loot-maker">Plusgrade</span><span class="loot-tier">Epic</span></footer>
+          </article>
+
+          <article class="loot-card loot-card--rare" data-reveal>
+            <header>
+              <span class="loot-score">344</span>
+              <span class="loot-score-label">Stars</span>
+              <span class="loot-req">Open Source</span>
+            </header>
+            <h3>node-wifi</h3>
+            <dl class="loot-stats">
+              <div><dt>Stars</dt><dd>344★</dd></div>
+              <div><dt>Scope</dt><dd>Cross-platform</dd></div>
+              <div><dt>Status</dt><dd>Maintained</dd></div>
+            </dl>
+            <ul class="loot-traits">
+              <li>Wi-Fi control from Node, any OS</li>
+              <li>Used well beyond its original project</li>
+            </ul>
+            <p class="loot-effect">Ships utility to strangers — the clearest signal that the code holds up.</p>
+            <footer><span class="loot-maker">Open Source</span><span class="loot-tier">Rare</span></footer>
+          </article>
+        </div>
       </section>
 
       <!-- FIELD REPORTS -->
