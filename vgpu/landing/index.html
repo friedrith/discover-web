@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thibault Friedrich — Product Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- One real, distinct display+body face per design system — this is
+         the biggest single lever for making the ten systems actually read
+         as different systems, not just a palette swap. -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@500;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Lora:wght@400;600&family=Nunito:wght@400;600;800&family=Orbitron:wght@600;700;800&family=Oswald:wght@500;600&family=Playfair+Display:wght@600;700&family=Quicksand:wght@500;600;700&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/pages/landing/style.css" />
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+    <canvas id="hud"></canvas>
+    <a class="back" href="/">&larr; pages</a>
+    <select id="theme-select" class="theme-select" aria-label="Design system"></select>
+
+    <main>
+      <section class="hero">
+        <p class="hero-tagline">Product Engineer</p>
+        <p class="hero-scroll">scroll</p>
+      </section>
+
+      <section class="proposition">
+        <p class="eyebrow">Value proposition</p>
+        <h2>I build your product — idea to production — in one week.</h2>
+        <p class="lede">
+          The same craftsmanship behind a design system 100+ engineers ship on, and a
+          platform that moved $1.3M USD in one quarter — compressed into five working
+          days.
+        </p>
+      </section>
+
+      <section class="values">
+        <p class="eyebrow">Values</p>
+        <div class="cards">
+          <article>
+            <h3>Speed</h3>
+            <p>
+              Impatient by nature. I move fast, get to the point, and treat momentum
+              as part of the craft — not a shortcut around it.
+            </p>
+          </article>
+          <article>
+            <h3>UX</h3>
+            <p>
+              I care how a product feels to use, not only how it's built. Every
+              decision starts from the person on the other side of the screen.
+            </p>
+          </article>
+          <article>
+            <h3>Craftsmanship</h3>
+            <p>
+              Clean, tested, maintainable code — the kind still easy to work in a
+              year later, even on a five-day clock.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about">
+        <p class="eyebrow">About</p>
+        <p class="bio">
+          Staff Software Engineer at Plusgrade in Montreal, and founder of
+          <a href="https://interaction-dynamics.io" target="_blank" rel="noreferrer">Interaction Dynamics</a>.
+          10+ years building frontend platforms, design systems, and the products
+          they ship on — with an engineering degree (applied math &amp; physics,
+          ENSIMAG) underneath the product sense.
+        </p>
+        <dl class="stats">
+          <div><dt>10+</dt><dd>years shipping</dd></div>
+          <div><dt>40+</dt><dd>components, one design system</dd></div>
+          <div><dt>$1.3M</dt><dd>USD quarterly impact, one platform</dd></div>
+          <div><dt>344★</dt><dd>open source, node-wifi</dd></div>
+          <div><dt>30+</dt><dd>technical articles published</dd></div>
+        </dl>
+      </section>
+
+      <section class="signature">
+        <canvas id="signature"></canvas>
+        <a class="cta" href="/process/">See how a week actually works →</a>
+      </section>
+    </main>
+
+    <script type="module" src="/src/pages/landing/main.ts"></script>
+  </body>
+</html>

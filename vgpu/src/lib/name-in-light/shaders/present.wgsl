@@ -1,0 +1,70 @@
+import { rc_atlas_texel, rc_block_size, rc_ray_count } from "./rc-directions.wgsl";
+
+// The only pass that leaves linear radiance. It resolves cascade 0 into
+// irradiance, lights the floor grid with it, adds the emitters' own glow on
+// top, and encodes once — tonemap and sRGB happen here and nowhere else,
+// because merging in sRGB is what produces ringing and halos.
+
+fn grid_albedo(pixel: vec2f, cell: f32, line_width: f32, base: vec3f, line: vec3f, visible: f32) -> vec3f {
+  let to_line = abs(fract(pixel / cell - 0.5) - 0.5) * cell;
+  let d = min(to_line.x, to_line.y);
+  let strength = (1.0 - smoothstep(line_width - 0.75, line_width + 0.75, d)) * visible;
+  return mix(base, line, strength);
+}
+
+fn tonemap_aces(color: vec3f) -> vec3f {
+  let a = 2.51;
+  let b = 0.03;
+  let c = 2.43;
+  let d = 0.59;
+  let e = 0.14;
+  return clamp((color * (a * color + b)) / (color * (c * color + d) + e), vec3f(0.0), vec3f(1.0));
+}
+
+fn linear_to_srgb(color: vec3f) -> vec3f {
+  let low = color * 12.92;
+  let high = 1.055 * pow(max(color, vec3f(0.0)), vec3f(1.0 / 2.4)) - 0.055;
+  return select(high, low, color <= vec3f(0.0031308));
+}
+
+struct GridParams {
+  base: vec3f,
+  visible: f32,
+  line: vec3f,
+  unused: f32,
+};
+
+@group(0) @binding(0) var cascade_tex: texture_2d<f32>;
+@group(0) @binding(1) var emitter_tex: texture_2d<f32>;
+@group(0) @binding(2) var<uniform> grid: GridParams;
+
+/**
+ * Irradiance at a pixel: the mean of cascade 0's four rays. Cascade 0 has
+ * one probe per pixel, so no spatial interpolation is needed here — the
+ * bilinear work all happened during the merges above.
+ */
+fn resolve_cascade0(pixel: vec2f) -> vec3f {
+  let block = rc_block_size(0.0);
+  let rays = rc_ray_count(0.0);
+  let atlas_size = vec2f(textureDimensions(cascade_tex));
+  let probe = clamp(floor(pixel), vec2f(0.0), atlas_size / block - 1.0);
+  var total = vec3f(0.0);
+  for (var i = 0.0; i < rays; i = i + 1.0) {
+    let coord = rc_atlas_texel(probe, i, block);
+    total += textureLoad(cascade_tex, vec2i(coord), 0).rgb;
+  }
+  return total / rays;
+}
+
+@fragment fn fs_main(@location(0) uv: vec2f) -> @location(0) vec4f {
+  let size = vec2f(textureDimensions(emitter_tex));
+  let pixel = uv * size;
+  let texel = vec2i(clamp(floor(pixel), vec2f(0.0), size - 1.0));
+
+  let irradiance = resolve_cascade0(pixel);
+  let albedo = grid_albedo(pixel, 48.0, 1.0, grid.base, grid.line, grid.visible);
+  let emitter = textureLoad(emitter_tex, texel, 0);
+  let lit = mix(albedo * (irradiance + 0.01), emitter.rgb, clamp(emitter.a, 0.0, 1.0));
+
+  return vec4f(linear_to_srgb(tonemap_aces(lit * 0.85)), 1.0);
+}
