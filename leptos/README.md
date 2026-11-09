@@ -30,7 +30,7 @@ The form is an `ActionForm`, so it also works before the WASM has loaded.
 ```bash
 rustup target add wasm32-unknown-unknown
 cargo install cargo-leptos --locked
-cargo leptos watch          # http://127.0.0.1:3000, live reload
+cargo leptos watch          # http://127.0.0.1:3100, live reload
 ```
 
 Production build:
