@@ -1,0 +1,18 @@
+# Deploy with: fly launch --no-deploy (pick a unique app name), then fly deploy
+app = "discover-leptos"
+primary_region = "yul" # Montréal
+
+[build]
+  dockerfile = "Dockerfile"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

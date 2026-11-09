@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Tailwind scans the Rust sources for class names. */
+@source "../src/**/*.rs";
