@@ -2,3 +2,24 @@
 
 /* Tailwind scans the Rust sources for class names. */
 @source "../src/**/*.rs";
+
+/* `dark:` follows the `dark` class on <html>, set by THEME_SCRIPT and ThemeToggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  /* Shared look for text inputs and selects. */
+  .input {
+    @apply h-10 rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-900 outline-none
+      placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-400
+      dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:ring-zinc-600;
+  }
+}

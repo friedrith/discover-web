@@ -8,6 +8,9 @@ async fn main() {
     use leptos_axum::{LeptosRoutes, generate_route_list};
     use leptos_fullstack::app::{App, shell};
 
+    // Start the uptime clock now, not on the first request.
+    std::sync::LazyLock::force(&leptos_fullstack::store::STARTED);
+
     let conf = get_configuration(None).unwrap();
     let addr = conf.leptos_options.site_addr;
     let leptos_options = conf.leptos_options;

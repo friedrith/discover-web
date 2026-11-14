@@ -16,14 +16,26 @@ It is the Rust counterpart of a Next.js + React + Tailwind + shadcn app.
 
 ## What the demo shows
 
-| Card | Runs where | Code |
+| Page | Shows | Code |
 |---|---|---|
-| Client state | Browser (WASM) after hydration | `Counter` in [`src/app.rs`](src/app.rs) |
-| Server function | Axum server, called from the browser | `#[server] greet` in [`src/app.rs`](src/app.rs) |
+| `/` Home | Signals and memos in WASM, a server function form, a resource streamed with the HTML and refetched on demand | [`pages/home.rs`](src/pages/home.rs) |
+| `/tasks` Task board | Create, toggle, delete and clear tasks with server functions. Optimistic rows while a request is in flight. Filter stored in the URL (`?filter=active`). Works without JavaScript (`ActionForm` falls back to a form post) | [`pages/tasks.rs`](src/pages/tasks.rs) |
+| `/blog` Blog | Nested routes (`<ParentRoute/>` + `<Outlet/>`), a `:slug` parameter, live search and tag filters in the query string, `<Transition/>` vs `<Suspense/>`, per-page `<Title/>` and `<Meta/>` | [`pages/blog.rs`](src/pages/blog.rs) |
+| `/about` | What runs on the server and what runs in the browser | [`pages/about.rs`](src/pages/about.rs) |
+| Any other URL | A 404 page that also sends a real `404` status during SSR | [`pages/not_found.rs`](src/pages/not_found.rs) |
 
-The `Greeting` struct is defined once and shared by the server and the client.
-Leptos creates the HTTP endpoint and the serialization for the server function.
-The form is an `ActionForm`, so it also works before the WASM has loaded.
+Across the site:
+
+- **Shared types.** [`models.rs`](src/models.rs) is compiled into both the
+  server and the WASM bundle, so both sides agree on every payload.
+- **Server-only code.** [`store.rs`](src/store.rs) is behind
+  `#[cfg(feature = "ssr")]` and never reaches the browser. It holds the tasks
+  in memory (they reset on restart) and validates input: empty or long titles,
+  duplicates, and a cap of 50 tasks.
+- **Server functions.** [`api.rs`](src/api.rs) has every `#[server]` function.
+  Most of them wait 250 ms on purpose so you can see loading states.
+- **Dark mode.** An inline script in `<head>` applies the saved or system theme
+  before the first paint, then a context signal drives the toggle.
 
 ## Run it
 
@@ -40,8 +52,7 @@ cargo leptos build --release
 ```
 
 This produces `target/release/leptos-fullstack` (the server) and `target/site/`
-(the WASM, JS and CSS). The WASM bundle is about 490 KB, or about 200 KB
-gzipped. The server uses about 7 MB of RAM at idle.
+(the WASM, JS and CSS). 
 
 ## Deploy
 
@@ -64,8 +75,20 @@ with Coolify). Put Cloudflare in front to cache `/pkg/*` at the edge.
 src/
   main.rs          Axum server (feature "ssr")
   lib.rs           WASM entry point: hydrate() (feature "hydrate")
-  app.rs           pages, server function, shared types
-  components/      shadcn-style UI components
+  app.rs           HTML shell, layout, navigation, routes
+  models.rs        types shared by server and client
+  api.rs           #[server] functions
+  store.rs         in-memory data, server only
+  pages/           one module per route
+  components/      Button, Card, Badge, Skeleton, Spinner, ThemeToggle
 style/tailwind.css Tailwind input (scans src/**/*.rs)
 Cargo.toml         [package.metadata.leptos] config for cargo-leptos
 ```
+
+## Tests
+
+```bash
+cargo test --features ssr
+```
+
+The tests cover the store (validation, sorting, search) and the shared helpers.

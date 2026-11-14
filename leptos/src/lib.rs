@@ -1,5 +1,10 @@
+pub mod api;
 pub mod app;
 pub mod components;
+pub mod models;
+pub mod pages;
+#[cfg(feature = "ssr")]
+pub mod store;
 
 /// Entry point of the WebAssembly bundle: takes over the server-rendered HTML.
 #[cfg(feature = "hydrate")]
